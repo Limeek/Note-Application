@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="108.0" prefWidth="224.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewNoteErrorController">
+   <children>
+      <Label alignment="CENTER" layoutX="17.0" layoutY="28.0" prefHeight="17.0" prefWidth="191.0" text="Note size should be less than 100" />
+      <Button fx:id="btnOk" alignment="CENTER" layoutX="85.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Ok" />
+   </children>
+</AnchorPane>

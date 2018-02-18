@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="610.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NoteController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="593.0" prefWidth="450.0" vbarPolicy="ALWAYS">
+         <content>
+            <TilePane fx:id="noteTilePane" hgap="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumns="2" vgap="5.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="btnNew" layoutY="2.0" mnemonicParsing="false" text="New Note" />
+   </children>
+</AnchorPane>
