@@ -1,6 +1,7 @@
 package Controllers;
 
 import Model.Note;
+import Model.NoteDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
@@ -63,6 +65,7 @@ public class NoteController {
                 e.printStackTrace();
             }
         });
+        //при нажатии открывается окно с изменением заметки
         btnEdit.setOnMouseClicked((event)->{
             TextArea textArea = (TextArea) noteTilePane.getScene().getFocusOwner();
             Note noteToEdit = (Note) textArea.getUserData();
@@ -85,7 +88,19 @@ public class NoteController {
             catch (IOException e){
                 e.printStackTrace();
             }
-
+        });
+        //при нажатии удаляется заметка
+        btnDelete.setOnMouseClicked((event)->{
+            TextArea textArea =(TextArea) noteTilePane.getScene().getFocusOwner();
+            Note noteToDelete = (Note) textArea.getUserData();
+            try {
+                NoteDAO.deleteNoteById(noteToDelete.getNoteId());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            mainApp.getNoteData().remove(noteToDelete);
+            noteTilePane.getChildren().remove(textArea);
+            noteToDelete = null;
         });
     }
     //рисуем экран
