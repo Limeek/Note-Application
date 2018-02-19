@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12de80d5-d7c8-416e-a773-40a76edbb49c" name="Default" comment="Edit Note functionality">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Controllers/EditNoteController.java" />
+    <list default="true" id="12de80d5-d7c8-416e-a773-40a76edbb49c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/NewNoteController.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/NewNoteController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/NoteController.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/NoteController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/NoteDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Model/NoteDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/newNote.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/noteProperties.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/newNoteSizeError.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/noteTextSizeError.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/notes.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/notes.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/NewNoteController.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/NewNoteController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/NoteController.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/NoteController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/NoteDB.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/NoteDB.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Note.class" afterPath="$PROJECT_DIR$/target/classes/Model/Note.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/NoteDAO.class" afterPath="$PROJECT_DIR$/target/classes/Model/NoteDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/newNote.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/notes.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/notes.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/newNoteSizeError.fxml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -557,6 +543,14 @@
       <option name="presentableId" value="Default" />
       <updated>1518439562858</updated>
     </task>
+    <task id="LOCAL-00001" summary="Edit Note functionality">
+      <created>1519048567825</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519048567826</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
