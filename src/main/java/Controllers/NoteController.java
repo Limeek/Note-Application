@@ -10,6 +10,8 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+
 //контролллер основного окна
 public class NoteController {
     @FXML
@@ -18,6 +20,10 @@ public class NoteController {
     private ScrollPane scrollPane;
     @FXML
     private Button btnNew;
+    @FXML
+    private Button btnEdit;
+    @FXML
+    private Button btnDelete;
 
     private MainApp mainApp;
 
@@ -33,23 +39,20 @@ public class NoteController {
         //при нажатии кнопки открывается новое окно с созданием заметки
         btnNew.setOnMouseClicked((event)->  {
             Parent root;
-
             try{
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/newNote.fxml"));
+                loader.setLocation(getClass().getResource("/fxml/noteProperties.fxml"));
+                NewNoteController controller = new NewNoteController();
+                loader.setController(controller);
                 root = loader.load();
-
                 Stage stage = new Stage();
                 stage.setTitle("New Note");
                 stage.setScene(new Scene(root));
-
-                NewNoteController controller = loader.getController();
-
                 stage.showAndWait();
-
-                if(controller.getNote() !=null){
+                if(controller.getNote() != null){
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
                     TextArea textArea = new TextArea(controller.getNote().getCreationDate().format(formatter) +"\n"+ controller.getNote().getNote());
+                    textArea.setUserData(controller.getNote());
                     textArea.setWrapText(true);
                     textArea.setEditable(false);
                     textArea.setPrefSize(200,200);
@@ -60,15 +63,43 @@ public class NoteController {
                 e.printStackTrace();
             }
         });
+        btnEdit.setOnMouseClicked((event)->{
+            TextArea textArea = (TextArea) noteTilePane.getScene().getFocusOwner();
+            Note noteToEdit = (Note) textArea.getUserData();
+            Parent root;
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/noteProperties.fxml"));
+                EditNoteController controller = new EditNoteController(noteToEdit);
+                loader.setController(controller);
+                root = loader.load();
+                controller.configureData();
+                Stage stage = new Stage();
+                stage.setTitle("Edit Note");
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+                textArea.setText(controller.getNote().getCreationDate().format(formatter) +"\n"+ controller.getNote().getNote());
+                textArea.toBack();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+        });
     }
     //рисуем экран
     public void configureData(){
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setContent(noteTilePane);
+        btnNew.setFocusTraversable(false);
+        btnEdit.setFocusTraversable(false);
+        btnDelete.setFocusTraversable(false);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         for(Note n: mainApp.getNoteData()){
             TextArea textArea = new TextArea(n.getCreationDate().format(formatter) +"\n"+ n.getNote());
+            textArea.setUserData(n);
             textArea.setWrapText(true);
             textArea.setEditable(false);
             textArea.setPrefSize(200,200);

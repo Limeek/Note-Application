@@ -47,4 +47,26 @@ public class NoteDAO {
             throw sqlEx;
         }
     }
+    public static void deleteNoteById (int id) throws SQLException{
+        String sqlStmt = "delete from notes where id = " + id;
+        try {
+            NoteDB.executeUpdate(sqlStmt);
+        }
+        catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+            System.out.println("Error while deleting note with id = " +id);
+            throw sqlEx;
+        }
+    }
+    public static void updateNoteById (int id, String note, LocalDateTime creationDate) throws SQLException{
+        String sqlStmt = "update notes set note = '"+ note +"',creationDate = '" + creationDate +"' where id = "+id;
+        try {
+            NoteDB.executeUpdate(sqlStmt);
+        }
+        catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+            System.out.println("Error while updating note with id = " +id);
+            throw sqlEx;
+        }
+    }
 }

@@ -10,11 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-//контроллер окна с созданием заметки
-public class NewNoteController {
+
+public class EditNoteController {
     @FXML
     private Label dateLabel;
     @FXML
@@ -25,30 +27,28 @@ public class NewNoteController {
     private Button btnCancel;
 
     private Note note;
+    EditNoteController(){}
 
-    public NewNoteController(){
+    EditNoteController(Note note){
+        this.note = note;
     }
-
+    
     @FXML
     public void initialize(){
-        note = new Note();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        dateLabel.setText(note.getCreationDate().format(formatter));
         setEvents();
     }
-    //метод в котором задаются event handler'ы кнопкам
     private void setEvents(){
-        //при нажатии создается заметка и закрывается окно
+        //при нажатии обновляется заметка и закрывается окно
         btnOk.setOnMouseClicked((event -> {
             note.setNote(noteText.getText());
-            Runnable insNote = () -> {
+            Runnable updNote = () -> {
                 try {
-                    NoteDAO.insertNote(note.getNote(),note.getCreationDate());
+                    NoteDAO.updateNoteById(note.getNoteId(),note.getNote(),note.getCreationDate());
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             };
-            new Thread(insNote).start();
+            new Thread(updNote).start();
             Stage stage = (Stage) btnOk.getScene().getWindow();
             stage.close();
         }));
@@ -75,12 +75,22 @@ public class NewNoteController {
                 stage.setTitle("Error");
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
-        }
-    });
+            }
+        });
+    }
+    public void configureData(){
+        note.setCreationDate(LocalDateTime.now());
+        noteText.setText(note.getNote());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        dateLabel.setText(note.getCreationDate().format(formatter));
+        setEvents();
+    }
+
+    public void setNote(Note note) {
+        this.note = note;
     }
 
     public Note getNote() {
         return note;
     }
-
 }

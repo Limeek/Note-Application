@@ -14,5 +14,7 @@
          </content>
       </ScrollPane>
       <Button fx:id="btnNew" layoutY="2.0" mnemonicParsing="false" text="New Note" />
+      <Button fx:id="btnEdit" layoutX="77.0" layoutY="2.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="btnDelete" layoutX="123.0" layoutY="2.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>
