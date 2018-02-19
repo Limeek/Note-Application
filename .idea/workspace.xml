@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12de80d5-d7c8-416e-a773-40a76edbb49c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/NoteController.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/NoteController.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -524,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519049394189</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Edit Note functionality">
+      <created>1519049755751</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519049755751</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
